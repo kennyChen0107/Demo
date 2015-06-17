@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContextViewController">
+            <connections>
+                <outlet property="bottomPageControl" destination="pzs-sl-XV9" id="UGd-5E-r2P"/>
+                <outlet property="bottomScrollView" destination="3aR-pX-3cH" id="YNl-RG-mgx"/>
+                <outlet property="topPageControl" destination="dtP-sE-snB" id="VcE-ZU-KwN"/>
+                <outlet property="topScrollView" destination="mmg-ba-XP2" id="8Ax-Q7-LqG"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEN-gW-3dT">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="581-Fc-kdQ"/>
+                    </constraints>
+                </view>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="dtP-sE-snB">
+                    <rect key="frame" x="0.0" y="150" width="600" height="15"/>
+                    <color key="currentPageIndicatorTintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </pageControl>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aR-pX-3cH">
+                    <rect key="frame" x="0.0" y="383" width="600" height="202"/>
+                    <color key="backgroundColor" red="1" green="0.54324452450000005" blue="0.79591250769999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="hyD-gQ-RXx"/>
+                    </connections>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pzs-sl-XV9">
+                    <rect key="frame" x="0.0" y="573" width="600" height="37"/>
+                    <color key="currentPageIndicatorTintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </pageControl>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmg-ba-XP2">
+                    <rect key="frame" x="0.0" y="165" width="600" height="203"/>
+                    <color key="backgroundColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="jj2-oV-KVG"/>
+                    </connections>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="3aR-pX-3cH" secondAttribute="trailing" id="0lx-3B-HfA"/>
+                <constraint firstItem="pzs-sl-XV9" firstAttribute="top" secondItem="3aR-pX-3cH" secondAttribute="bottom" constant="-12" id="34x-kv-5dn"/>
+                <constraint firstAttribute="trailing" secondItem="dtP-sE-snB" secondAttribute="trailing" id="6MF-M4-fH7"/>
+                <constraint firstItem="mmg-ba-XP2" firstAttribute="height" secondItem="3aR-pX-3cH" secondAttribute="height" id="Aum-HC-4ZK"/>
+                <constraint firstItem="pzs-sl-XV9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DQs-QI-qCd"/>
+                <constraint firstAttribute="trailing" secondItem="mmg-ba-XP2" secondAttribute="trailing" id="DZi-14-dkh"/>
+                <constraint firstItem="dtP-sE-snB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JQo-mc-ikR"/>
+                <constraint firstItem="dtP-sE-snB" firstAttribute="top" secondItem="cEN-gW-3dT" secondAttribute="bottom" id="NQN-OJ-9OP"/>
+                <constraint firstItem="mmg-ba-XP2" firstAttribute="top" secondItem="cEN-gW-3dT" secondAttribute="bottom" constant="15" id="OAc-TW-7hA"/>
+                <constraint firstItem="dtP-sE-snB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QQk-2g-LBJ"/>
+                <constraint firstItem="3aR-pX-3cH" firstAttribute="top" secondItem="dtP-sE-snB" secondAttribute="bottom" id="Vcj-nj-eMO"/>
+                <constraint firstItem="cEN-gW-3dT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XRc-1n-frF"/>
+                <constraint firstItem="mmg-ba-XP2" firstAttribute="top" secondItem="dtP-sE-snB" secondAttribute="bottom" id="Xic-ik-eUh"/>
+                <constraint firstItem="3aR-pX-3cH" firstAttribute="top" secondItem="mmg-ba-XP2" secondAttribute="bottom" constant="15" id="ZIW-or-dHc"/>
+                <constraint firstItem="3aR-pX-3cH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cos-86-Szv"/>
+                <constraint firstItem="mmg-ba-XP2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="e1H-kR-wtV"/>
+                <constraint firstAttribute="trailing" secondItem="pzs-sl-XV9" secondAttribute="trailing" id="gDg-ni-w8t"/>
+                <constraint firstItem="cEN-gW-3dT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iB3-td-0W6"/>
+                <constraint firstAttribute="bottom" secondItem="3aR-pX-3cH" secondAttribute="bottom" constant="15" id="mJT-aK-VMA"/>
+                <constraint firstAttribute="trailing" secondItem="cEN-gW-3dT" secondAttribute="trailing" id="nLo-h2-pkH"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="QQk-2g-LBJ"/>
+                    <exclude reference="Vcj-nj-eMO"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

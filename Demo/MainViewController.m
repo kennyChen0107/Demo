@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "MainTableViewCell.h"
 #import "MainHeaderView.h"
+#import "ContextViewController.h"
 
 @interface MainViewController ()<UITableViewDataSource, UITableViewDelegate, scrollDelegate, UICollectionViewDelegate>
 {
@@ -83,6 +84,11 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     return headerView;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.navigationController pushViewController:[[ContextViewController alloc]init] animated:YES];
 }
 
 
