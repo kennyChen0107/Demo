@@ -49,7 +49,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 40;
+    return [_dataArray count];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -65,7 +65,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"MainIdentifier"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.title.text = @"項目名稱";
+    cell.title.text = [_dataArray objectAtIndex:indexPath.row];
     [cell.collectionView setContentOffset:CGPointMake(scrollX, 0)];
     cell.scrollDelegate = self;
     return cell;

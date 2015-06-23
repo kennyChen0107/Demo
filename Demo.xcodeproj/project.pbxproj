@@ -30,6 +30,9 @@
 		B9A27A511B314F6200C1BC4B /* RAPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A27A451B314F6200C1BC4B /* RAPageViewController.m */; };
 		B9A27A521B314F6200C1BC4B /* RAPageViewControllerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A27A481B314F6200C1BC4B /* RAPageViewControllerScrollView.m */; };
 		B9A27A551B314FC500C1BC4B /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A27A541B314FC500C1BC4B /* CollectionViewController.m */; };
+		B9B042821B394A88009B26DE /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B042801B394A88009B26DE /* GroupViewController.m */; };
+		B9B042831B394A88009B26DE /* GroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9B042811B394A88009B26DE /* GroupViewController.xib */; };
+		B9B042861B394DE2009B26DE /* GroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B042851B394DE2009B26DE /* GroupModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,11 @@
 		B9A27A4A1B314F6200C1BC4B /* RAPageViewControllerSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAPageViewControllerSubclass.h; sourceTree = "<group>"; };
 		B9A27A531B314FC500C1BC4B /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		B9A27A541B314FC500C1BC4B /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		B9B0427F1B394A88009B26DE /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
+		B9B042801B394A88009B26DE /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
+		B9B042811B394A88009B26DE /* GroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupViewController.xib; sourceTree = "<group>"; };
+		B9B042841B394DE2009B26DE /* GroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupModel.h; sourceTree = "<group>"; };
+		B9B042851B394DE2009B26DE /* GroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,11 +142,13 @@
 		B957AC941B301DC800FE7409 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				B957AC991B301DC800FE7409 /* AppDelegate.h */,
+				B957AC9A1B301DC800FE7409 /* AppDelegate.m */,
+				B9B042841B394DE2009B26DE /* GroupModel.h */,
+				B9B042851B394DE2009B26DE /* GroupModel.m */,
 				B957ACBB1B301FBB00FE7409 /* MainViewController.h */,
 				B957ACBC1B301FBB00FE7409 /* MainViewController.m */,
 				B957ACBD1B301FBB00FE7409 /* MainViewController.xib */,
-				B957AC991B301DC800FE7409 /* AppDelegate.h */,
-				B957AC9A1B301DC800FE7409 /* AppDelegate.m */,
 				B9A27A1A1B3106D500C1BC4B /* MainTableViewCell.h */,
 				B9A27A1B1B3106D500C1BC4B /* MainTableViewCell.m */,
 				B9A27A1C1B3106D500C1BC4B /* MainTableViewCell.xib */,
@@ -150,6 +160,9 @@
 				B9A27A2E1B314C4100C1BC4B /* ContextViewController.h */,
 				B9A27A2F1B314C4100C1BC4B /* ContextViewController.m */,
 				B9A27A301B314C4100C1BC4B /* ContextViewController.xib */,
+				B9B0427F1B394A88009B26DE /* GroupViewController.h */,
+				B9B042801B394A88009B26DE /* GroupViewController.m */,
+				B9B042811B394A88009B26DE /* GroupViewController.xib */,
 				B957ACA21B301DC800FE7409 /* Images.xcassets */,
 				B957ACA41B301DC800FE7409 /* LaunchScreen.xib */,
 				B957AC951B301DC800FE7409 /* Supporting Files */,
@@ -298,6 +311,7 @@
 				B957ACA61B301DC800FE7409 /* LaunchScreen.xib in Resources */,
 				B957ACBF1B301FBB00FE7409 /* MainViewController.xib in Resources */,
 				B9A27A1E1B3106D500C1BC4B /* MainTableViewCell.xib in Resources */,
+				B9B042831B394A88009B26DE /* GroupViewController.xib in Resources */,
 				B957ACA31B301DC800FE7409 /* Images.xcassets in Resources */,
 				B9A27A321B314C4100C1BC4B /* ContextViewController.xib in Resources */,
 				B9A27A261B3107B900C1BC4B /* LabelCollectionViewCell.xib in Resources */,
@@ -325,8 +339,10 @@
 				B957AC9B1B301DC800FE7409 /* AppDelegate.m in Sources */,
 				B9A27A251B3107B900C1BC4B /* LabelCollectionViewCell.m in Sources */,
 				B9A27A4F1B314F6200C1BC4B /* RAPageCollectionViewFlowLayout.m in Sources */,
+				B9B042861B394DE2009B26DE /* GroupModel.m in Sources */,
 				B957ACBE1B301FBB00FE7409 /* MainViewController.m in Sources */,
 				B9A27A4B1B314F6200C1BC4B /* RADeferredOperation.m in Sources */,
+				B9B042821B394A88009B26DE /* GroupViewController.m in Sources */,
 				B9A27A4E1B314F6200C1BC4B /* RAPageCollectionViewController.m in Sources */,
 				B9A27A511B314F6200C1BC4B /* RAPageViewController.m in Sources */,
 				B9A27A501B314F6200C1BC4B /* RAPageCollectionViewSpacer.m in Sources */,

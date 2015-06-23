@@ -10,5 +10,5 @@
 
 @interface MainViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *mainTableview;
-
+@property (nonatomic, strong) NSMutableArray *dataArray;
 @end

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "GroupViewController.h"
+#import "GroupModel.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +20,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:[[MainViewController alloc] init]];
+    GroupModel *groupModel = [[GroupModel alloc] init];
+    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:[[GroupViewController alloc]init]];
+    MainViewController *mainViewController = [[MainViewController alloc] init];
+    mainViewController.dataArray = groupModel.group1;
+    mainViewController.title = @"群組1";
+    [mainNav pushViewController:mainViewController animated:NO];
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     [tabBarController setViewControllers:@[mainNav]];
     UITabBarItem *item1 = [tabBarController.tabBar.items objectAtIndex:0];
