@@ -10,6 +10,7 @@
 
 @protocol scrollDelegate <NSObject>
 -(void)allScroll:(double)contentoffset;
+-(void)didSelectItem;
 @end
 
 @interface MainTableViewCell : UITableViewCell<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>

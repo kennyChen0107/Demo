@@ -19,8 +19,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:[[MainViewController alloc] init]];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    [tabBarController setViewControllers:@[mainNav]];
+    UITabBarItem *item1 = [tabBarController.tabBar.items objectAtIndex:0];
+    item1.title = @"首頁";
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.window setRootViewController:mainNav];
+    [self.window setRootViewController:tabBarController];
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -91,6 +91,10 @@
     [self.navigationController pushViewController:[[ContextViewController alloc]init] animated:YES];
 }
 
+-(void)didSelectItem
+{
+    [self.navigationController pushViewController:[[ContextViewController alloc]init] animated:YES];
+}
 
 -(void)allScroll:(double)contentoffset
 {
