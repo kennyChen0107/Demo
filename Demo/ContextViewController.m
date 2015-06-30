@@ -7,6 +7,8 @@
 //
 
 #import "ContextViewController.h"
+#import "TestViewController.h"
+
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define RANGE 20
@@ -16,6 +18,11 @@
     double touch2;
     CGRect scrollBtnFrame;
     ScrollType scrollType;
+    TestViewController *test1;
+    TestViewController *test2;
+    TestViewController *test3;
+    TestViewController *test4;
+    TestViewController *test5;
 }
 @end
 
@@ -24,7 +31,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blackColor];
     scrollType = NormalScrollView;
     // Do any additional setup after loading the view from its nib.
     _topPageControl.currentPage = 0;
@@ -36,20 +42,32 @@
     [_topScrollView setContentSize:CGSizeMake(SCREEN_WIDTH * 5, 0)];
     [_bottomScrollView setContentSize:CGSizeMake(SCREEN_WIDTH * 5, 0)];
     
+    test1 = [[TestViewController alloc] init];
+    test1.color = [UIColor redColor];
+    [self addChildViewController:test1];
+    [test1.view setFrame:CGRectMake(0 * SCREEN_WIDTH, 0, _topScrollView.frame.size.width, _topScrollView.frame.size.height)];
+    [_topScrollView addSubview:test1.view];
     
-    for(int i = 0; i < 5; i++){
-        UILabel *topLabel = [[UILabel alloc] initWithFrame:CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, _topScrollView.frame.size.height)];
-        if(i == 0){
-        }
-        topLabel.textAlignment = NSTextAlignmentCenter;
-        topLabel.text = [NSString stringWithFormat:@"%d", i];
-        [_topScrollView addSubview:topLabel];
-        
-        UILabel *bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, _bottomScrollView.frame.size.height)];
-        bottomLabel.textAlignment = NSTextAlignmentCenter;
-        bottomLabel.text = [NSString stringWithFormat:@"%d", i];
-        [_bottomScrollView addSubview:bottomLabel];
-    }
+    test2 = [[TestViewController alloc] init];
+    test2.color = [UIColor blueColor];
+    [self addChildViewController:test2];
+    [test2.view setFrame:CGRectMake(0 * SCREEN_WIDTH, 0, _bottomScrollView.frame.size.width, _bottomScrollView.frame.size.height)];
+    [_bottomScrollView addSubview:test2.view];
+    
+    test3 = [[TestViewController alloc] init];
+    test3.color = [UIColor purpleColor];
+    [self addChildViewController:test3];
+    [test3.view setFrame:CGRectMake(1 * SCREEN_WIDTH, 0, _topScrollView.frame.size.width, _topScrollView.frame.size.height)];
+    [_topScrollView addSubview:test3.view];
+    
+    test4 = [[TestViewController alloc] init];
+    test4.color = [UIColor yellowColor];
+    [self addChildViewController:test1];
+    [test4.view setFrame:CGRectMake(1 * SCREEN_WIDTH, 0, _bottomScrollView.frame.size.width, _bottomScrollView.frame.size.height)];
+    [_bottomScrollView addSubview:test4.view];
+    
+    
+
     
     _scrollBtn.backgroundColor = [UIColor grayColor];
     scrollBtnFrame = _scrollBtn.frame;

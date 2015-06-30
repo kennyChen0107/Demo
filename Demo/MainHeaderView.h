@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainHeaderView : UIView
+@protocol headerDelegate <NSObject>
+-(void)headerScroll:(double)contentoffset;
+@end
+
+@interface MainHeaderView : UIView<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) UILabel *title;
-@property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) UICollectionView *collectionView;
+@property (nonatomic, strong) NSMutableArray *titleArray;
 -(instancetype)initWithFrame:(CGRect)frame contextArray:(NSMutableArray *)array;
+@property (weak) id<headerDelegate> headerDelegate;
 @end

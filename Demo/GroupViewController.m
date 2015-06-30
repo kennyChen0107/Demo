@@ -8,19 +8,18 @@
 
 #import "GroupViewController.h"
 #import "MainViewController.h"
+#import "AppDelegate.h"
 #import "GroupModel.h"
 
+
 @interface GroupViewController ()<UITableViewDataSource, UITableViewDelegate>
-{
-    GroupModel *model;
-}
+
 @end
 
 @implementation GroupViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    model = [GroupModel sharedInstance];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,7 +52,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    GroupModel *model = [GroupModel sharedInstance];
     MainViewController *mainViewController = [[MainViewController alloc] init];
+    
     switch (indexPath.row) {
         case 0:
             mainViewController.dataArray = model.group1;

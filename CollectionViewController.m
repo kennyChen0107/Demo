@@ -102,7 +102,7 @@
 //- (UIViewController *) newContentViewController {
 //    
 //	UIViewController *pvcsPVC = [[UIViewController alloc] initWithNibName:nil bundle:nil];
-//    pvcsPVC.view.backgroundColor = [UIColor redColor];
+//    pvcsPVC.view.backgroundColor = [UIColor lightGrayColor];
 //    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
 //    label.text = @"string";
 //    [pvcsPVC.view addSubview:label];

@@ -2,7 +2,7 @@
 //  GroupModel.m
 //  Demo
 //
-//  Created by Kenny on 2015/6/23.
+//  Created by Kenny on 2015/6/30.
 //  Copyright (c) 2015年 Demo. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
     });
     return sharedInstance;
 }
+
 -(instancetype)init
 {
     self = [super init];
@@ -29,7 +30,6 @@
         _group4 = [[NSMutableArray alloc] initWithObjects:@"亞太電", @"兆豐金", @"宜進", @"南帝", @"全新", @"統一", @"零壹", @"得力", @"金像電", @"日月光", nil];
         _group5 = [[NSMutableArray alloc] initWithObjects:@"台達電", @"鴻海", @"仁寶", @"英業達", @"精英", @"宏碁", @"鴻準", @"華碩", @"藍天", @"倫飛", @"技嘉", @"微星", @"廣達", nil];
     }
-    
     return self;
 }
 @end

@@ -14,16 +14,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOl-l6-Lox">
-                        <rect key="frame" x="5" y="0.0" width="100" height="43"/>
+                        <rect key="frame" x="5" y="0.0" width="60" height="43"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="Sfb-Eb-LdN"/>
+                            <constraint firstAttribute="width" constant="60" id="Sfb-Eb-LdN"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="oQQ-qE-Qlu">
-                        <rect key="frame" x="115" y="0.0" width="205" height="43"/>
+                        <rect key="frame" x="75" y="0.0" width="245" height="43"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uft-iD-0eo">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>

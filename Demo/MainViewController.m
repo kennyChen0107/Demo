@@ -11,10 +11,11 @@
 #import "MainHeaderView.h"
 #import "ContextViewController.h"
 
-@interface MainViewController ()<UITableViewDataSource, UITableViewDelegate, scrollDelegate, UICollectionViewDelegate>
+@interface MainViewController ()<UITableViewDataSource, UITableViewDelegate, scrollDelegate, UICollectionViewDelegate, headerDelegate>
 {
     double scrollX;
     MainHeaderView *headerView;
+    NSMutableArray *a;
 }
 @end
 
@@ -22,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSMutableArray *a = [[NSMutableArray alloc] init];
+    a = [[NSMutableArray alloc] init];
     [a addObject:@"第一項"];
     [a addObject:@"第二項"];
     [a addObject:@"第三項"];
@@ -35,16 +36,21 @@
     [a addObject:@"第十項"];
     headerView = [[MainHeaderView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44) contextArray:a];
     headerView.title.text = @"項目";
-    headerView.scrollView.delegate = self;
-    
-    _mainTableview.delegate = self;
-    _mainTableview.dataSource = self;
+    headerView.title.textColor = [UIColor whiteColor];
+    headerView.headerDelegate = self;
+    _mainTableview.tableHeaderView = headerView;
+
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -64,10 +70,10 @@
         [tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil] forCellReuseIdentifier:@"MainIdentifier"];
         cell = [tableView dequeueReusableCellWithIdentifier:@"MainIdentifier"];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.title.text = [_dataArray objectAtIndex:indexPath.row];
-    [cell.collectionView setContentOffset:CGPointMake(scrollX, 0)];
-    cell.scrollDelegate = self;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.title.text = [_dataArray objectAtIndex:indexPath.row];
+        [cell.collectionView setContentOffset:CGPointMake(scrollX, 0)];
+        cell.scrollDelegate = self;
     return cell;
 }
 
@@ -76,15 +82,16 @@
     return 44.0f;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 44.0f;
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 44.0f;
+//}
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    return headerView;
-}
+//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    return _collectionView;
+//}
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -102,18 +109,19 @@
     for(MainTableViewCell *cell in cells){
         [cell.collectionView setContentOffset:CGPointMake(contentoffset, 0)];
         scrollX = contentoffset;
-        [headerView.scrollView setContentOffset:CGPointMake(contentoffset, 0)];
+        [headerView.collectionView setContentOffset:CGPointMake(contentoffset, 0)];
     }
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
+-(void)headerScroll:(double)contentoffset
 {
-    if([scrollView isEqual:headerView.scrollView]){
-        NSArray *cells = _mainTableview.visibleCells;
-        for(MainTableViewCell *cell in cells){
-            [cell.collectionView setContentOffset:CGPointMake(scrollView.contentOffset.x, 0)];
-            scrollX = scrollView.contentOffset.x;
-        }
-    }
+    [self allScroll:contentoffset];
 }
+
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    if([scrollView isEqual:headerView.scrollView]){
+//        [self allScroll:scrollView.contentOffset.x];
+//    }
+//}
 @end

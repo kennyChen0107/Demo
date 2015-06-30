@@ -20,21 +20,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    GroupModel *groupModel = [[GroupModel alloc] init];
     UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:[[GroupViewController alloc]init]];
-    MainViewController *mainViewController = [[MainViewController alloc] init];
-    mainViewController.dataArray = groupModel.group1;
-    mainViewController.title = @"群組1";
-    [mainNav pushViewController:mainViewController animated:NO];
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     [tabBarController setViewControllers:@[mainNav]];
     UITabBarItem *item1 = [tabBarController.tabBar.items objectAtIndex:0];
     item1.title = @"首頁";
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:tabBarController];
+    
+    GroupModel *model = [[GroupModel alloc] init];
+    
+    MainViewController *mainViewController = [[MainViewController alloc] init];
+    mainViewController.dataArray = model.group1;
+    mainViewController.title = @"群組1";
+    [mainNav pushViewController:mainViewController animated:NO];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

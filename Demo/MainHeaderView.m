@@ -7,6 +7,7 @@
 //
 
 #import "MainHeaderView.h"
+#import "LabelCollectionViewCell.h"
 
 @implementation MainHeaderView
 
@@ -14,22 +15,25 @@
 {
     self = [super initWithFrame:frame];
     if(self){
-        self.backgroundColor = [UIColor yellowColor];
+        self.titleArray = array;
+        
+        self.backgroundColor = [UIColor darkGrayColor];
         self.title = [[UILabel alloc] init];
         _title.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:_title];
         
-        self.scrollView = [[UIScrollView alloc] init];
-        _scrollView.backgroundColor = [UIColor redColor];
-        _scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:_scrollView];
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
         
-        for(int i = 0; i < [array count]; i++){
-            UILabel *context = [[UILabel alloc] initWithFrame:CGRectMake(80 * i + i * 10, 0, 80, 35)];
-            context.text = [array objectAtIndex:i];
-            [_scrollView addSubview:context];
-        }
-        
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44) collectionViewLayout:flowLayout];
+        _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+        [_collectionView registerNib:[UINib nibWithNibName:@"LabelCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"LabelIdentifier"];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.backgroundColor = [UIColor darkGrayColor];
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        [self addSubview:_collectionView];
+
         [self updateConstraintsIfNeeded];
     }
     
@@ -39,10 +43,39 @@
 -(void)updateConstraints
 {
     [super updateConstraints];
-    NSDictionary *layoutDict = NSDictionaryOfVariableBindings(_title, _scrollView);
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-5-[_title(100)]-10-[_scrollView]|" options:0 metrics:nil views:layoutDict]];
+    NSDictionary *layoutDict = NSDictionaryOfVariableBindings(_title, _collectionView);
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-5-[_title(60)]-10-[_collectionView]|" options:0 metrics:nil views:layoutDict]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_title]|" options:0 metrics:nil views:layoutDict]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_scrollView]|" options:0 metrics:nil views:layoutDict]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_collectionView]|" options:0 metrics:nil views:layoutDict]];
 }
 
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(80, 35);
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    LabelCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"LabelIdentifier" forIndexPath:indexPath];
+    cell.context.textColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor darkGrayColor];
+    cell.context.text = [_titleArray objectAtIndex:indexPath.row];
+    return cell;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_headerDelegate headerScroll:scrollView.contentOffset.x];
+}
 @end

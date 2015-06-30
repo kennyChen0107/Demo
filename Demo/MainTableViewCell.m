@@ -13,14 +13,14 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    self.backgroundColor = [UIColor yellowColor];
+    self.backgroundColor = [UIColor blackColor];
     [_collectionView registerNib:[UINib nibWithNibName:@"LabelCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"LabelIdentifier"];
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     _collectionView.collectionViewLayout = flowLayout;
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
-    _collectionView.backgroundColor = [UIColor redColor];
+    _collectionView.backgroundColor = [UIColor blackColor];
     _collectionView.showsHorizontalScrollIndicator = NO;
 }
 

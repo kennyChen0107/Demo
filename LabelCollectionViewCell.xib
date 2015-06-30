@@ -12,10 +12,10 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTD-1a-BFq">
-                        <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTD-1a-BFq">
+                        <rect key="frame" x="5" y="0.0" width="70" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="1" green="0.00037710946942925982" blue="0.18698667381898704" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -24,8 +24,8 @@
             <constraints>
                 <constraint firstItem="NTD-1a-BFq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1aS-9i-AMH"/>
                 <constraint firstAttribute="bottom" secondItem="NTD-1a-BFq" secondAttribute="bottom" id="EJO-V6-3ID"/>
-                <constraint firstItem="NTD-1a-BFq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="b4B-Hl-sfu"/>
-                <constraint firstAttribute="trailing" secondItem="NTD-1a-BFq" secondAttribute="trailing" id="nPV-U0-VY1"/>
+                <constraint firstItem="NTD-1a-BFq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="b4B-Hl-sfu"/>
+                <constraint firstAttribute="trailing" secondItem="NTD-1a-BFq" secondAttribute="trailing" constant="5" id="nPV-U0-VY1"/>
             </constraints>
             <size key="customSize" width="80" height="44"/>
             <connections>
