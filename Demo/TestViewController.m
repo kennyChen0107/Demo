@@ -9,11 +9,24 @@
 #import "TestViewController.h"
 
 @interface TestViewController ()<UITableViewDataSource, UITableViewDelegate>
-
+{
+    ContextViewController *contextViewController;
+    NSMutableArray *layoutConstraints;
+}
 @end
 
 @implementation TestViewController
 
+
+-(instancetype)initWithController:(ContextViewController *)controller
+{
+    self = [super init];
+    if(self){
+        contextViewController = controller;
+        layoutConstraints = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initView];
@@ -39,13 +52,22 @@
     [self.view addSubview:_drawView];
 }
 
--(void)viewDidLayoutSubviews
+-(void)updateViewConstraints
 {
+    [super updateViewConstraints];
+    [self.view removeConstraints:layoutConstraints];
+    [layoutConstraints removeAllObjects];
     NSDictionary *layoutDict = NSDictionaryOfVariableBindings(_mainTableView, _drawView);
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_drawView(230)][_mainTableView]|" options:NSLayoutFormatAlignAllRight | NSLayoutFormatAlignAllLeft metrics:nil views:layoutDict]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mainTableView]|" options:0 metrics:nil views:layoutDict]];
-    
+    if(contextViewController.scrollType == FullBottomScrollView || contextViewController.scrollType == FullTopScrollView){
+        [layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_drawView][_mainTableView(==_drawView)]|" options:NSLayoutFormatAlignAllLeft | NSLayoutFormatAlignAllRight metrics:nil views:layoutDict]];
+        [layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mainTableView]|" options:0 metrics:nil views:layoutDict]];
+    }else{
+        [layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_drawView][_mainTableView(0)]|" options:0 metrics:nil views:layoutDict]];
+        [layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_drawView]|" options:0 metrics:nil views:layoutDict]];
+    }
+    [self.view addConstraints:layoutConstraints];
 }
+
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

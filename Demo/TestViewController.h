@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "TestView.h"
+#import "ContextViewController.h"
 
 @interface TestViewController : UIViewController
 @property (nonatomic, strong) UIColor *color;
 @property (nonatomic, strong) UITableView *mainTableView;
 @property (nonatomic, strong) TestView *drawView;
+-(instancetype)initWithController:(ContextViewController *)controller;
 @end

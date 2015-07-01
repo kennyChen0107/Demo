@@ -15,6 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if(self){
+        layoutConstraints = [[NSMutableArray alloc] init];
         self.titleArray = array;
         
         self.backgroundColor = [UIColor darkGrayColor];
@@ -43,10 +44,15 @@
 -(void)updateConstraints
 {
     [super updateConstraints];
+    [self removeConstraints:layoutConstraints];
+    [layoutConstraints removeAllObjects];
+    
     NSDictionary *layoutDict = NSDictionaryOfVariableBindings(_title, _collectionView);
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-5-[_title(60)]-10-[_collectionView]|" options:0 metrics:nil views:layoutDict]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_title]|" options:0 metrics:nil views:layoutDict]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_collectionView]|" options:0 metrics:nil views:layoutDict]];
+    [layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-5-[_title(60)]-10-[_collectionView]|" options:0 metrics:nil views:layoutDict]];
+    [layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_title]|" options:0 metrics:nil views:layoutDict]];
+    [layoutConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_collectionView]|" options:0 metrics:nil views:layoutDict]];
+    
+    [self addConstraints:layoutConstraints];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

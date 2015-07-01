@@ -13,6 +13,9 @@
 @end
 
 @interface MainHeaderView : UIView<UICollectionViewDataSource, UICollectionViewDelegate>
+{
+    NSMutableArray *layoutConstraints;
+}
 @property (strong, nonatomic) UILabel *title;
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *titleArray;

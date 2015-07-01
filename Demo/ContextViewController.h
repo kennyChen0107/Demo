@@ -21,4 +21,5 @@ typedef enum scrollType {
 @property (weak, nonatomic) IBOutlet UIPageControl *topPageControl;
 @property (weak, nonatomic) IBOutlet UIPageControl *bottomPageControl;
 @property (weak, nonatomic) IBOutlet UIButton *scrollBtn;
+@property (nonatomic) ScrollType scrollType;
 @end
