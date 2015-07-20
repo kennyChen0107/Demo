@@ -35,7 +35,6 @@
 		B9B042821B394A88009B26DE /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B042801B394A88009B26DE /* GroupViewController.m */; };
 		B9B042831B394A88009B26DE /* GroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9B042811B394A88009B26DE /* GroupViewController.xib */; };
 		B9B042891B395779009B26DE /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B042881B395779009B26DE /* TestViewController.m */; };
-		B9B0428E1B395E6D009B26DE /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B9B0428D1B395E6D009B26DE /* test.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,12 +65,12 @@
 		B957ACBB1B301FBB00FE7409 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		B957ACBC1B301FBB00FE7409 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		B957ACBD1B301FBB00FE7409 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		B9A27A1A1B3106D500C1BC4B /* MainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
-		B9A27A1B1B3106D500C1BC4B /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewCell.m; sourceTree = "<group>"; };
-		B9A27A1C1B3106D500C1BC4B /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
-		B9A27A221B3107B900C1BC4B /* LabelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabelCollectionViewCell.h; path = ../LabelCollectionViewCell.h; sourceTree = "<group>"; };
-		B9A27A231B3107B900C1BC4B /* LabelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabelCollectionViewCell.m; path = ../LabelCollectionViewCell.m; sourceTree = "<group>"; };
-		B9A27A241B3107B900C1BC4B /* LabelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LabelCollectionViewCell.xib; path = ../LabelCollectionViewCell.xib; sourceTree = "<group>"; };
+		B9A27A1A1B3106D500C1BC4B /* MainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTableViewCell.h; path = Demo/MainTableViewCell.h; sourceTree = "<group>"; };
+		B9A27A1B1B3106D500C1BC4B /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTableViewCell.m; path = Demo/MainTableViewCell.m; sourceTree = "<group>"; };
+		B9A27A1C1B3106D500C1BC4B /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainTableViewCell.xib; path = Demo/MainTableViewCell.xib; sourceTree = "<group>"; };
+		B9A27A221B3107B900C1BC4B /* LabelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelCollectionViewCell.h; sourceTree = "<group>"; };
+		B9A27A231B3107B900C1BC4B /* LabelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelCollectionViewCell.m; sourceTree = "<group>"; };
+		B9A27A241B3107B900C1BC4B /* LabelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		B9A27A291B3114F700C1BC4B /* MainHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainHeaderView.h; sourceTree = "<group>"; };
 		B9A27A2A1B3114F700C1BC4B /* MainHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainHeaderView.m; sourceTree = "<group>"; };
 		B9A27A2E1B314C4100C1BC4B /* ContextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextViewController.h; sourceTree = "<group>"; };
@@ -107,7 +106,6 @@
 		B9B042811B394A88009B26DE /* GroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupViewController.xib; sourceTree = "<group>"; };
 		B9B042871B395779009B26DE /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		B9B042881B395779009B26DE /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		B9B0428D1B395E6D009B26DE /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +129,8 @@
 		B957AC891B301DC800FE7409 = {
 			isa = PBXGroup;
 			children = (
+				B982BC071B5C932C009A541D /* CollectionViewCell */,
+				B982BC061B5C931D009A541D /* TableViewCell */,
 				B9A27A331B314F5200C1BC4B /* RAPageCollectionView */,
 				B957AC941B301DC800FE7409 /* Demo */,
 				B957ACAE1B301DC800FE7409 /* DemoTests */,
@@ -150,7 +150,6 @@
 		B957AC941B301DC800FE7409 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				B9B0428D1B395E6D009B26DE /* test.jpg */,
 				B957AC991B301DC800FE7409 /* AppDelegate.h */,
 				B957AC9A1B301DC800FE7409 /* AppDelegate.m */,
 				B91E2E9E1B426F9E003614A8 /* GroupModel.h */,
@@ -158,14 +157,8 @@
 				B957ACBB1B301FBB00FE7409 /* MainViewController.h */,
 				B957ACBC1B301FBB00FE7409 /* MainViewController.m */,
 				B957ACBD1B301FBB00FE7409 /* MainViewController.xib */,
-				B9A27A1A1B3106D500C1BC4B /* MainTableViewCell.h */,
-				B9A27A1B1B3106D500C1BC4B /* MainTableViewCell.m */,
-				B9A27A1C1B3106D500C1BC4B /* MainTableViewCell.xib */,
 				B9A27A291B3114F700C1BC4B /* MainHeaderView.h */,
 				B9A27A2A1B3114F700C1BC4B /* MainHeaderView.m */,
-				B9A27A221B3107B900C1BC4B /* LabelCollectionViewCell.h */,
-				B9A27A231B3107B900C1BC4B /* LabelCollectionViewCell.m */,
-				B9A27A241B3107B900C1BC4B /* LabelCollectionViewCell.xib */,
 				B9A27A2E1B314C4100C1BC4B /* ContextViewController.h */,
 				B9A27A2F1B314C4100C1BC4B /* ContextViewController.m */,
 				B9A27A301B314C4100C1BC4B /* ContextViewController.xib */,
@@ -207,6 +200,26 @@
 				B957ACB01B301DC800FE7409 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B982BC061B5C931D009A541D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B9A27A1A1B3106D500C1BC4B /* MainTableViewCell.h */,
+				B9A27A1B1B3106D500C1BC4B /* MainTableViewCell.m */,
+				B9A27A1C1B3106D500C1BC4B /* MainTableViewCell.xib */,
+			);
+			name = TableViewCell;
+			sourceTree = "<group>";
+		};
+		B982BC071B5C932C009A541D /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B9A27A221B3107B900C1BC4B /* LabelCollectionViewCell.h */,
+				B9A27A231B3107B900C1BC4B /* LabelCollectionViewCell.m */,
+				B9A27A241B3107B900C1BC4B /* LabelCollectionViewCell.xib */,
+			);
+			name = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		B9A27A331B314F5200C1BC4B /* RAPageCollectionView */ = {
@@ -328,7 +341,6 @@
 				B957ACA31B301DC800FE7409 /* Images.xcassets in Resources */,
 				B9A27A321B314C4100C1BC4B /* ContextViewController.xib in Resources */,
 				B9A27A261B3107B900C1BC4B /* LabelCollectionViewCell.xib in Resources */,
-				B9B0428E1B395E6D009B26DE /* test.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

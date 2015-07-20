@@ -15,7 +15,7 @@
 {
     double scrollX;
     MainHeaderView *headerView;
-    NSMutableArray *a;
+    NSMutableArray *headerTitle;
 }
 @end
 
@@ -23,22 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    a = [[NSMutableArray alloc] init];
-    [a addObject:@"第一項"];
-    [a addObject:@"第二項"];
-    [a addObject:@"第三項"];
-    [a addObject:@"第四項"];
-    [a addObject:@"第五項"];
-    [a addObject:@"第六項"];
-    [a addObject:@"第七項"];
-    [a addObject:@"第八項"];
-    [a addObject:@"第九項"];
-    [a addObject:@"第十項"];
-    headerView = [[MainHeaderView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44) contextArray:a];
+    headerTitle = [[NSMutableArray alloc] initWithObjects:@"第一項", @"第二項", @"第三項", @"第四項", @"第五項", @"第六項", @"第七項", @"第八項", @"第九項", @"第十項", nil];
+    headerView = [[MainHeaderView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44) contextArray:headerTitle];
     headerView.title.text = @"項目";
     headerView.title.textColor = [UIColor whiteColor];
     headerView.headerDelegate = self;
-    _mainTableview.tableHeaderView = headerView;
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -50,6 +39,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    _mainTableView.delegate = nil;
     [super viewWillDisappear:animated];
 }
 
@@ -82,15 +72,15 @@
     return 44.0f;
 }
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return 44.0f;
-//}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 44.0f;
+}
 
-//-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    return _collectionView;
-//}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return headerView;
+}
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,7 +95,7 @@
 
 -(void)allScroll:(double)contentoffset
 {
-    NSArray *cells = _mainTableview.visibleCells;
+    NSArray *cells = _mainTableView.visibleCells;
     for(MainTableViewCell *cell in cells){
         [cell.collectionView setContentOffset:CGPointMake(contentoffset, 0)];
         scrollX = contentoffset;
@@ -118,10 +108,10 @@
     [self allScroll:contentoffset];
 }
 
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//    if([scrollView isEqual:headerView.scrollView]){
-//        [self allScroll:scrollView.contentOffset.x];
-//    }
-//}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if([scrollView isEqual:headerView.collectionView]){
+        [self allScroll:scrollView.contentOffset.x];
+    }
+}
 @end

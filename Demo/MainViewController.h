@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MainViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITableView *mainTableview;
+@property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @end

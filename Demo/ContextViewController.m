@@ -127,6 +127,10 @@
             _scrollType = NormalScrollView;
         }
     }];
+    [test1 updateViewConstraints];
+    [test2 updateViewConstraints];
+    [test3 updateViewConstraints];
+    [test4 updateViewConstraints];
 }
 
 -(void)topTapGesture:(UITapGestureRecognizer *)gesture
@@ -134,7 +138,7 @@
     [UIView animateWithDuration:0.25 animations:^{
         if(_scrollType == NormalScrollView){
             [_scrollBtn setFrame:CGRectMake(_scrollBtn.frame.origin.x, _bottomPageControl.frame.origin.y, _scrollBtn.frame.size.width, _scrollBtn.frame.size.height)];
-            [_topScrollView setFrame:CGRectMake(_scrollBtn.frame.origin.x, _topScrollView.frame.origin.y, _topScrollView.frame.size.width, _scrollBtn.frame.origin.y - _topPageControl.frame.origin.y)];
+            [_topScrollView setFrame:CGRectMake(_scrollBtn.frame.origin.x, _topScrollView.frame.origin.y, _topScrollView.frame.size.width, _bottomPageControl.frame.origin.y - _topScrollView.frame.origin.y)];
             [_bottomScrollView setFrame:CGRectMake(_scrollBtn.frame.origin.x, _bottomPageControl.frame.origin.y, _scrollBtn.frame.size.width, 0)];
             _scrollType = FullTopScrollView;
         }else{
@@ -144,6 +148,10 @@
             _scrollType = NormalScrollView;
         }
     }];
+    [test1 updateViewConstraints];
+    [test2 updateViewConstraints];
+    [test3 updateViewConstraints];
+    [test4 updateViewConstraints];
 }
 
 -(void)handlePanGesture:(UIPanGestureRecognizer *)gesture
@@ -188,7 +196,7 @@
             [UIView animateWithDuration:0.25 animations:^{
                 if(_scrollBtn.frame.origin.y > scrollBtnFrame.origin.y + (SCREEN_HEIGHT - 150 - 45) / 4){
                     [_scrollBtn setFrame:CGRectMake(_scrollBtn.frame.origin.x, _bottomPageControl.frame.origin.y, _scrollBtn.frame.size.width, _scrollBtn.frame.size.height)];
-                    [_topScrollView setFrame:CGRectMake(_scrollBtn.frame.origin.x, _topScrollView.frame.origin.y, _topScrollView.frame.size.width, _scrollBtn.frame.origin.y - _topPageControl.frame.origin.y)];
+                    [_topScrollView setFrame:CGRectMake(_scrollBtn.frame.origin.x, _topScrollView.frame.origin.y, _topScrollView.frame.size.width, _bottomPageControl.frame.origin.y - _topScrollView.frame.origin.y)];
                     [_bottomScrollView setFrame:CGRectMake(_scrollBtn.frame.origin.x, _bottomPageControl.frame.origin.y, _scrollBtn.frame.size.width, 0)];
                     _scrollType = FullTopScrollView;
                 }else if(_scrollBtn.frame.origin.y < scrollBtnFrame.origin.y - (SCREEN_HEIGHT - 150 - 45) / 4){

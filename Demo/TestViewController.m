@@ -7,11 +7,16 @@
 //
 
 #import "TestViewController.h"
+#import "MainHeaderView.h"
+#import "MainTableViewCell.h"
 
-@interface TestViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface TestViewController ()<UITableViewDataSource, UITableViewDelegate, headerDelegate, scrollDelegate>
 {
+    double scrollX;
     ContextViewController *contextViewController;
     NSMutableArray *layoutConstraints;
+    MainHeaderView *headerView;
+    NSMutableArray *headerTitle;
 }
 @end
 
@@ -29,12 +34,28 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initHeaderView];
     [self initView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    _mainTableView.delegate = nil;
+    [super viewWillDisappear:animated];
+}
+
+-(void)initHeaderView
+{
+    headerTitle = [[NSMutableArray alloc] initWithObjects:@"第一項", @"第二項", @"第三項", @"第四項", @"第五項", @"第六項", @"第七項", @"第八項", @"第九項", @"第十項", nil];
+    headerView = [[MainHeaderView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44) contextArray:headerTitle];
+    headerView.title.text = @"項目";
+    headerView.title.textColor = [UIColor whiteColor];
+    headerView.headerDelegate = self;
 }
 
 -(void)initView
@@ -81,15 +102,53 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    MainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainIdentifier"];
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:@"MainTableViewCell" bundle:nil] forCellReuseIdentifier:@"MainIdentifier"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"MainIdentifier"];
     }
-    cell.textLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.text = @"12345";
-    cell.backgroundColor = [UIColor blackColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.title.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
+    [cell.collectionView setContentOffset:CGPointMake(scrollX, 0)];
+    cell.scrollDelegate = self;
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 44.0f;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return headerView;
+}
+
+-(void)didSelectItem
+{
+    NSLog(@"selectItem");
+}
+
+-(void)allScroll:(double)contentoffset
+{
+    NSArray *cells = _mainTableView.visibleCells;
+    for(MainTableViewCell *cell in cells){
+        [cell.collectionView setContentOffset:CGPointMake(contentoffset, 0)];
+        scrollX = contentoffset;
+        [headerView.collectionView setContentOffset:CGPointMake(contentoffset, 0)];
+    }
+}
+
+-(void)headerScroll:(double)contentoffset
+{
+    [self allScroll:contentoffset];
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if([scrollView isEqual:headerView.collectionView]){
+        [self allScroll:scrollView.contentOffset.x];
+    }
 }
 
 @end
